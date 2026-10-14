@@ -1,0 +1,13 @@
+{
+  "name": "evox-cursor",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cursor agent controls for the evoX deck.",
+  "scripts": {
+    "check": "node check.mjs"
+  },
+  "dependencies": {
+    "@evoxapp/plugin-sdk": "^0.2.0"
+  }
+}

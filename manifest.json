@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "pluginId": "d3ef75a3-eb0d-4151-819d-c49e731d87d9",
+  "sdkVersion": "0.2.0",
+  "name": "Cursor",
+  "description": "Agent status, approvals, profiles, and remaining usage on the evoX deck.",
+  "version": "1.0.0",
+  "glyph": "Layers01Icon",
+  "runtime": {
+    "kind": "trusted-node",
+    "entry": "runtime.mjs"
+  },
+  "hostCompatibility": {
+    "minimumVersion": "0.2.0"
+  },
+  "permissions": [
+    {
+      "name": "key.display"
+    }
+  ],
+  "settingsSchema": [],
+  "actions": [
+    {
+      "id": "status",
+      "name": "Status",
+      "description": "Shows Idle, Working, or the command waiting for a decision in this user-data directory. Press brings that Cursor forward.",
+      "glyph": "Activity01Icon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Account this key reads. Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        },
+        {
+          "key": "sound",
+          "type": "select",
+          "label": "Waiting sound",
+          "description": "Once plays Glass a single time. Ring repeats Ping until the prompt is answered or it times out.",
+          "default": "once",
+          "options": [
+            { "value": "off", "label": "Off" },
+            { "value": "once", "label": "Once" },
+            { "value": "ring", "label": "Ring" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "approve",
+      "name": "Allow",
+      "description": "Accepts the waiting prompt, whether Cursor calls it Run, Approve, or Allow.",
+      "glyph": "CheckmarkCircle01Icon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Account this key approves. Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "deny",
+      "name": "Deny",
+      "description": "Blocks the command or tool waiting in this user-data directory.",
+      "glyph": "Alert01Icon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Account this key denies. Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "profile",
+      "name": "Profile",
+      "description": "Opens a separate Cursor window using this folder as its user-data directory.",
+      "glyph": "Folder01Icon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "name",
+          "type": "text",
+          "label": "Name",
+          "description": "Shown on the key. Leave blank to use the folder name.",
+          "placeholder": "Work",
+          "required": false
+        },
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Folder Cursor should use as --user-data-dir. Each folder is a separate account.",
+          "required": true
+        },
+        {
+          "key": "workspace",
+          "type": "path",
+          "label": "Workspace",
+          "description": "Optional project folder to open in that window.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "usage",
+      "name": "Usage",
+      "description": "Shows how much of the plan is left for the account in this user-data directory.",
+      "glyph": "ZapIcon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "stop",
+      "name": "Stop",
+      "description": "Sends Escape to the Cursor window for this user-data directory. Needs Accessibility.",
+      "glyph": "StopIcon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Account this key stops. Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "project",
+      "name": "Project",
+      "description": "Shows the folder the agent has open in this user-data directory. Press brings that window forward.",
+      "glyph": "ArchiveIcon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Account this key reads. Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "model",
+      "name": "Model",
+      "description": "Shows the model the agent is using. Press steps through the list you set and saves it as the composer model.",
+      "glyph": "Settings02Icon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Account this key reads. Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        },
+        {
+          "key": "models",
+          "type": "text",
+          "label": "Models",
+          "description": "Comma-separated slugs. Press moves to the next one.",
+          "placeholder": "composer-1, gpt-5",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "file",
+      "name": "Last file",
+      "description": "Shows the last file the agent edited. Press opens it in this user-data directory.",
+      "glyph": "File01Icon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Account this key reads. Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "chat",
+      "name": "New chat",
+      "description": "Brings that Cursor window forward and sends the new-chat shortcut.",
+      "glyph": "Message01Icon",
+      "controllers": ["Keypad"],
+      "supportedInMultiActions": false,
+      "settingsSchema": [
+        {
+          "key": "userDataDir",
+          "type": "path",
+          "label": "User data directory",
+          "description": "Account this key opens. Leave blank for the default Cursor account on this Mac.",
+          "required": false
+        },
+        {
+          "key": "hotkey",
+          "type": "text",
+          "label": "Shortcut",
+          "description": "Sent after the window is focused. Use the shortcut that starts a new agent chat.",
+          "placeholder": "cmd+n",
+          "default": "cmd+n",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "profiles",
+      "name": "Profiles",
+      "description": "Rotate through the Profile keys on this deck. Press opens the one selected.",
+      "glyph": "RefreshIcon",
+      "controllers": ["Knob"],
+      "supportedInMultiActions": false,
+      "settingsSchema": []
+    }
+  ]
+}

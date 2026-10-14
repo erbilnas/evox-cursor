@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.cursor/
+.env
+.env.*
+*.log
+.idea/
+.vscode/
+*.tmp

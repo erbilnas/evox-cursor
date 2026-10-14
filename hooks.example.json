@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "sessionEnd": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "beforeSubmitPrompt": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "afterAgentThought": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "afterAgentResponse": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "preToolUse": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "postToolUse": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "postToolUseFailure": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "beforeShellExecution": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "afterShellExecution": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "beforeMCPExecution": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "afterMCPExecution": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "afterFileEdit": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "subagentStart": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "subagentStop": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }],
+    "stop": [{ "command": "node \"/ABSOLUTE/PATH/TO/evox-cursor/cursor-hook.mjs\"" }]
+  }
+}
